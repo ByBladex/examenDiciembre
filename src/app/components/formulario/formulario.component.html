@@ -1,0 +1,8 @@
+<div class="container" [hidden]="this.servicioLibro.getHide()">
+    <form [formGroup]="formValidado">
+        <input type="text" formControlName="id" placeholder="ID LIBRO" [ngClass]="{'invalid':this.formValidado.controls.id.invalid && this.formValidado.controls.id.touched}">
+        <div [hidden]="!this.formValidado.invalid || !this.formValidado.touched" class="invalidText">*Introduzca una id de libro</div>
+        <button [disabled]="this.formValidado.invalid" (click)="getLibro()">Enviar</button>
+    </form>
+</div>
+<app-detalles [libro]="libro"></app-detalles>
